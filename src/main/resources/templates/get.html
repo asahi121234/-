@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">　　　<!--画面のサイズ変わってもレイアウトが崩れないように固定-->
+    <title>投稿結果</title>
+
+    <style>
+        body{
+        background-color:lightgray;
+        }
+
+
+       h1{
+       margin-left: 10%;
+       }
+
+        .post{
+        background-color:lightblue;
+        padding:1.5em 1em;
+        border: 3px solid ;
+        width:70%;
+        margin-left:13%;
+        }
+
+
+        .name{
+        background-color:white;
+
+
+        }
+
+
+        .title{
+        background-color:white;
+        padding:0.5em 0.5em;
+        border:2px solid;
+        }
+
+        .text{
+        border-bottom:1px solid;
+        }
+
+        textarea{
+        width: 70%;
+        height: 100px;
+        }
+
+
+        .answer-box{
+        border:2px solid blue;
+        background:white;
+        margin:30px;
+        width:70%;
+        margin-left:13%;
+        }
+
+        .nname{
+        margin-left:40%;
+        }
+
+        .TEXT{
+         margin-left:15%;
+        }
+
+
+        .Botan{
+        margin-left:45%;
+        width:80px;        /*横幅*/
+        height:50px;        /*縦幅*/
+        font-size:16px;     /*文字の大きさ*/
+        padding:5px;        /*内側の余白*/
+        border-radius: 5px; /* 角丸 */
+        }
+
+
+        .Aname{
+        border-bottom:1px solid;
+         height:50px;        /*縦幅*/
+        }
+
+        a{
+        margin-left:70%;
+        }
+    </style>
+</head>
+<body>
+
+<!--post.htmlから受け取った値を表示するHTMLファイル-->
+<h1>知恵袋</h1>
+<div  class="post"> <!--返信内容もDBに保存するのでpostメソッド使用-->
+    <div class="name"><h4>名前: <span th:text="${post.name}"></span></b></h4></div>
+    <div class="title">
+        <div class="text"><h4>タイトル: <span th:text="${post.text}"></span></h4></div>
+        <h4><span>内容</span></h4><span th:text="${post.question}"></span></div>
+</div>
+
+
+
+<!--回答-->
+<form action="/answer" method="post">
+    <!-- どの投稿に対する回答かを送る（見えない部分） -->
+    <input type="hidden" name="postId" th:value="${post.id}">
+
+    <p class="nname">名前: <input type="text" name="Aname"></p>
+    <textarea name="answer" placeholder="回答内容の入力" class="TEXT"></textarea><br>
+    <input type="submit" value="回答する" class="Botan">
+</form>
+
+
+
+<!--投稿に対しての回答を表示する-->
+<div th:each="ans : ${answers}" class="answer-box"><br>
+
+    <div class="Aname" ><p>名前: <span th:text="${ans.Aname}"></span></p></div><br>
+<span th:text="${ans.answer}"></span><br>
+
+
+</div>
+
+
+<!--前の画面に戻る-->
+<a th:href="@{/post}">前の画面へ戻る</a>
+
+
+</body>
+</html>

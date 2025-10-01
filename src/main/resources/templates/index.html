@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">　　<!--画面のサイズ変わってもレイアウトが崩れないように固定-->
+  <title>知恵袋</title>
+
+  <style>
+    body{
+    background-color:lightgray;
+    }
+
+
+    h1{
+    margin-left: 10%;
+    }
+
+    .search{
+    margin-left: 10%;
+    width:60%;        /*横幅*/
+    height:35px;        /*縦幅*/
+    font-size:16px;     /*文字の大きさ*/
+    padding:5px;        /*内側の余白*/
+
+    }
+
+    .kensaku{
+    width:80px;        /*横幅*/
+    height:50px;        /*縦幅*/
+    font-size:16px;     /*文字の大きさ*/
+    padding:5px;        /*内側の余白*/
+    border-radius: 5px; /* 角丸 */
+   background-color: lightblue;
+    }
+
+
+
+    p{
+    margin-left:42%;
+    font-size:20px;
+    display: inline-block;
+    border:solid 2px;
+    background-color: lightblue;
+    color:black;
+    border-radius: 5px;
+    padding:5px;
+    }
+
+
+    h4{
+    margin-left:18%;
+    }
+
+
+    h3{
+   margin-left:45%;
+   margin-bottom:10px;
+   }
+
+    ul{
+    list-style: nome;
+    }
+
+
+
+    .posts-box{
+    border:2px double blue;
+    margin:20px 50px;
+    border-radius: 5px; /* 角丸 */
+    width:70%;
+    margin-left:13%;
+    }
+  </style>
+
+</head>
+<body>
+  <h1>知恵袋</h1>
+
+
+
+<!--検索フォーム-->
+  <form th:action="@{/search}" method="get">　　　       <!--データの取得だからメソッドはget-->
+  <input type="text" name="keyword" placeholder="キーワードを入力" class="search">
+  <input type="submit" value="検索" class="kensaku">
+  </form>
+
+
+
+<!--検索結果を表示する機能-->
+<h4 th:if="${keyword != null}">検索ワード: <span th:text="${keyword}"></span></h4><br>
+
+
+
+<!--投稿ページへ飛ぶ-->
+<a href="/post"><p>質問・投稿する</p></a>
+
+
+
+<!--投稿一覧の表示-->
+<h3>投稿一覧</h3>
+<div>
+<ul>
+  <li th:each="post:${posts}" class="posts-box">      <!--投稿を１つずつ表示-->
+    <a th:href="@{/get/{id} (id=${post.id})}" th:text="${post.text}"></a>  <!--タイトル欄を表示して、クリックするとその内容に飛べる-->
+  </li>
+</ul>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">    <!--画面のサイズ変わってもレイアウトが崩れないように固定-->
+  <title>知恵袋</title>
+
+  <style>
+    body{
+    background-color:lightgray;
+    }
+    h1{
+    margin-left: 10%;
+    }
+   .post{
+   background-color:lightblue;
+   padding:1em 1em;
+    border: 3px solid ;
+    width:70%;
+    margin-left:13%;
+   }
+
+   textarea{
+   width: 70%;
+   height: 100px;
+   }
+
+   input[type="submit"]{
+     margin-left:45%;
+     margin-top:5px;
+     width:100px;
+     height:40px;
+     font-size:15px;
+     padding:0.2px;
+     background-color:white;
+   }
+
+
+    h4{
+      margin-left:70%;
+     }
+  </style>
+
+</head>
+<body>
+<h1>知恵袋</h1>
+<form action="/send" method="post">      <!--投稿したものをDBにも保存するのでpost使用-->
+  <div class="post">
+  <p>名前:<input type="text" name="name"></p>
+  <p>タイトル:<input type="text" name="text"></p>
+  <textarea name="question" placeholder="質問・投稿内容を入力"></textarea>
+  <br></div>
+<input type="submit" value="投稿する">
+</form>
+
+
+<a th:href="@{/}"><h4>最初の画面へ戻る</h4></a> <!--index.htmlへ戻る-->
+</body>
+</html>
