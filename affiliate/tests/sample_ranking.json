@@ -1,0 +1,61 @@
+{
+  "_comment": "動作確認用の架空データ。実在の商品ではない。",
+  "Items": [
+    {
+      "rank": 1,
+      "itemName": "【サンプル】珪藻土バスマット 速乾 大判 60×40cm",
+      "catchcopy": "サンプル用のキャッチコピー",
+      "itemCode": "sample-shop:10000001",
+      "itemPrice": 2480,
+      "itemUrl": "https://item.rakuten.co.jp/sample-shop/10000001/",
+      "affiliateUrl": "https://hb.afl.rakuten.co.jp/ichiba/SAMPLE/10000001",
+      "shopName": "サンプルショップ",
+      "reviewAverage": 4.5,
+      "reviewCount": 1320,
+      "availability": 1,
+      "mediumImageUrls": ["https://thumbnail.image.rakuten.co.jp/sample1.jpg"]
+    },
+    {
+      "rank": 2,
+      "itemName": "【サンプル】置くだけ ダイエット サプリ 30日分",
+      "catchcopy": "",
+      "itemCode": "sample-shop:10000002",
+      "itemPrice": 1980,
+      "itemUrl": "https://item.rakuten.co.jp/sample-shop/10000002/",
+      "affiliateUrl": "https://hb.afl.rakuten.co.jp/ichiba/SAMPLE/10000002",
+      "shopName": "サンプルショップ",
+      "reviewAverage": 4.2,
+      "reviewCount": 800,
+      "availability": 1,
+      "mediumImageUrls": []
+    },
+    {
+      "rank": 3,
+      "itemName": "【サンプル】シリコン 保存容器 5点セット",
+      "catchcopy": "",
+      "itemCode": "sample-shop:10000003",
+      "itemPrice": 1680,
+      "itemUrl": "https://item.rakuten.co.jp/sample-shop/10000003/",
+      "affiliateUrl": "https://hb.afl.rakuten.co.jp/ichiba/SAMPLE/10000003",
+      "shopName": "サンプルショップ",
+      "reviewAverage": 3.6,
+      "reviewCount": 210,
+      "availability": 1,
+      "mediumImageUrls": []
+    },
+    {
+      "rank": 4,
+      "itemName": "【サンプル】折りたたみ ランドリーバスケット 2個組",
+      "catchcopy": "",
+      "itemCode": "sample-shop:10000004",
+      "itemPrice": 2990,
+      "itemUrl": "https://item.rakuten.co.jp/sample-shop/10000004/",
+      "affiliateUrl": "https://hb.afl.rakuten.co.jp/ichiba/SAMPLE/10000004",
+      "shopName": "サンプルショップ",
+      "reviewAverage": 4.4,
+      "reviewCount": 560,
+      "availability": 1,
+      "mediumImageUrls": [{ "imageUrl": "https://thumbnail.image.rakuten.co.jp/sample4.jpg" }]
+    }
+  ]
+}

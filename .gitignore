@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### affiliate ###
+__pycache__/
+# 楽天の成果レポート（売上が含まれるのでコミットしない）
+affiliate/data/results/*
+!affiliate/data/results/.gitkeep
