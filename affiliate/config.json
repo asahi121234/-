@@ -1,25 +1,61 @@
 {
-  "_comment": "ジャンルIDは楽天のジャンル検索APIで確認してから使うこと。posts_per_run は1回の実行で作る投稿数。",
+  "_comment": "ジャンルIDは楽天のジャンル検索APIで確認してから使うこと。posts_per_run は1回に作るアフィリエイト投稿数、normal_posts_per_affiliate はアフィリエイト1件あたりの普通の投稿数。",
   "genres": [
-    { "id": "215783", "name": "日用品雑貨・文房具・手芸" },
-    { "id": "100939", "name": "美容・コスメ・香水" },
-    { "id": "562637", "name": "家電" },
-    { "id": "100227", "name": "食品" }
+    {
+      "id": "215783",
+      "name": "日用品雑貨・文房具・手芸"
+    },
+    {
+      "id": "100939",
+      "name": "美容・コスメ・香水"
+    },
+    {
+      "id": "562637",
+      "name": "家電"
+    },
+    {
+      "id": "100227",
+      "name": "食品"
+    }
   ],
   "posts_per_run": 3,
+  "normal_posts_per_affiliate": 2,
   "candidates_per_genre": 30,
   "filter": {
     "min_review_average": 4.0,
     "min_review_count": 50,
     "min_price": 500,
     "max_price": 30000,
-    "exclude_keywords": ["医薬品", "サプリ", "ダイエット", "育毛", "精力", "タバコ", "電子タバコ", "成人", "アダルト", "コンタクトレンズ", "中古", "予約"],
+    "exclude_keywords": [
+      "医薬品",
+      "サプリ",
+      "ダイエット",
+      "育毛",
+      "精力",
+      "タバコ",
+      "電子タバコ",
+      "成人",
+      "アダルト",
+      "コンタクトレンズ",
+      "中古",
+      "予約"
+    ],
     "skip_recently_posted_days": 30
   },
   "post": {
     "max_chars": 500,
-    "pr_markers": ["#PR", "【PR】", "[PR]", "（PR）", "(PR)", "広告"],
-    "affiliate_url_prefixes": ["https://hb.afl.rakuten.co.jp/", "https://a.r10.to/"]
+    "pr_markers": [
+      "#PR",
+      "【PR】",
+      "[PR]",
+      "（PR）",
+      "(PR)",
+      "広告"
+    ],
+    "affiliate_url_prefixes": [
+      "https://hb.afl.rakuten.co.jp/",
+      "https://a.r10.to/"
+    ]
   },
   "review": {
     "max_revisions": 2

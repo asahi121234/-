@@ -40,6 +40,7 @@ def time_band(hour):
 
 
 FEATURES = {
+    "post_type": lambda r: r.get("post_type") or "affiliate",
     "genre_name": lambda r: r.get("genre_name") or "不明",
     "price_band": lambda r: price_band(r.get("price")),
     "hook_type": lambda r: r.get("hook_type") or "不明",
@@ -103,6 +104,11 @@ def main():
     config = load_config()
     rows = [r for r in read_log() if r.get("status") == "posted"]
     result = summarize(rows, config["analysis"]["min_samples_for_trend"])
+    # 売れた/売れないの比較はアフィリエイト投稿だけで行う
+    affiliate = [r for r in rows if (r.get("post_type") or "affiliate") == "affiliate"]
+    compared = summarize(affiliate, config["analysis"]["min_samples_for_trend"])
+    result["sold_posts"] = compared["sold_posts"]
+    result["unsold_posts"] = compared["unsold_posts"]
     json.dump(result, sys.stdout, ensure_ascii=False, indent=2)
     print()
 

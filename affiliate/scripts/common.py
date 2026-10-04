@@ -14,6 +14,7 @@ LOG_COLUMNS = [
     "created_at",
     "posted_at",
     "status",  # draft / posted / skipped
+    "post_type",  # affiliate / normal
     "item_code",
     "item_name",
     "genre_id",

@@ -43,6 +43,18 @@ class CheckPostTest(unittest.TestCase):
         result = check("#PR " + "あ" * 600, URL, self.config, self.ng)
         self.assertFalse(result["ok"])
 
+    def test_normal_post_ok(self):
+        result = check("みんなポチる前にレビュー何件くらい読む？", "", self.config, self.ng, "normal")
+        self.assertTrue(result["ok"])
+
+    def test_normal_post_with_link(self):
+        result = check(f"これいいかも {URL}", "", self.config, self.ng, "normal")
+        self.assertIn("普通の投稿にリンクが入っている", result["errors"])
+
+    def test_normal_post_ng_word(self):
+        result = check("これ飲めば絶対痩せるらしい", "", self.config, self.ng, "normal")
+        self.assertFalse(result["ok"])
+
 
 class FilterTest(unittest.TestCase):
     def test_sample_filtering(self):

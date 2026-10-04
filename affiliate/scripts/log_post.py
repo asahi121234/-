@@ -30,6 +30,7 @@ def add(path):
         row["post_id"] = row["post_id"] or uuid.uuid4().hex[:10]
         row["created_at"] = row["created_at"] or now
         row["status"] = row["status"] or "draft"
+        row["post_type"] = row["post_type"] or "affiliate"
         row["char_count"] = row["char_count"] or len(entry.get("text", ""))
         rows.append(row)
         added.append(row["post_id"])

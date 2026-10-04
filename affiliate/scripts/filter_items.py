@@ -19,7 +19,7 @@ def recently_posted_codes(days):
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     codes = set()
     for row in read_log():
-        if row.get("status") == "skipped":
+        if row.get("status") == "skipped" or row.get("post_type") == "normal":
             continue
         try:
             created = datetime.fromisoformat(row.get("created_at", ""))
